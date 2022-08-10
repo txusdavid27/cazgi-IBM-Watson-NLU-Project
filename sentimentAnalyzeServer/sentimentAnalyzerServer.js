@@ -12,11 +12,11 @@ app.use(cors_app());
 /*Uncomment the following lines to loan the environment 
 variables that you set up in the .env file*/
 
-// const dotenv = require('dotenv');
-// dotenv.config();
+ const dotenv = require('dotenv');
+ dotenv.config();
 
-// const api_key = process.env.API_KEY;
-// const api_url = process.env.API_URL;
+ const api_key = process.env.API_KEY;
+ const api_url = process.env.API_URL;
 
 function getNLUInstance() {
     /*Type the code to create the NLU instance and return it.
@@ -28,9 +28,9 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2022-04-07',
   authenticator: new IamAuthenticator({
-    apikey: 'TBjoJiPKYHaanKpRtWYRwgFqMAdTHl4AqTrsV7DXOeWQ',
+    apikey: api_key,
   }),
-  serviceUrl: 'https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/1ec87419-3986-430f-9380-e2c68dccc9d5',
+  serviceUrl: api_url,
 });
 
     return naturalLanguageUnderstanding;
